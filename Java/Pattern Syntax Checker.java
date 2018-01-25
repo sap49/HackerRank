@@ -1,22 +1,42 @@
-import java.util.Scanner;
-import java.util.regex.Pattern;
-import java.util.regex.PatternSyntaxException;
+import java.util.Random;
+import java.util.Scanner;    //to use the random number generator
 
-public class Solution {
+public class Ct {
 
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        int N = scan.nextInt();
-        scan.nextLine();
-        for (int i = 0; i < N; i++) {
-            String regex = scan.nextLine();
-            try {
-                Pattern.compile(regex);
-                System.out.println("Valid");
-            }
-            catch (PatternSyntaxException e) {
-                System.out.println("Invalid");
-            }
-        }
-    }
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) 
+	{	
+	
+	
+	
+		final int NUMBER = 100;
+		Random generator = new Random();
+		int count = 0; 
+		int guess;
+		
+		do
+		{
+			System.out.println("Enter a guess between 1 to 100");
+			guess = Keyboard.nextInt();
+		}while (guess < 1 || guess > 100);
+		
+		int randomNumber = generator.nextInt(NUMBER)+1;
+		
+		while(guess != randomNumber)
+		{
+			count++;
+			if(guess > randomNumber)
+				//output response
+				System.out.println("output response too high. " + "Enter number again");
+			else if(guess < randomNumber)
+				//output response
+			System.out.println("Output response too low. " + "Enter number again");
+			guess = Keyboard.nextInt();
+
+
+		}
+		}
+
 }
